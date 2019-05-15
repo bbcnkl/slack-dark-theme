@@ -16,7 +16,7 @@ usage() {
 uninstall_theme() {
 	if [[ $(grep -c "CUSTOM THEMES CONFIG" $DEST_FILE) -gt 0 ]]
 	then
-		sed -i '' -e '/^\/\/ CUSTOM THEMES CONFIG$/,$d' $DEST_FILE
+		sed -n -i '' -e '/^\/\/ CUSTOM THEMES CONFIG$/,$d' $DEST_FILE
 	fi
 }
 
@@ -25,6 +25,8 @@ install_theme() {
 	THEME="https://raw.githubusercontent.com/bbcnkl/slack-dark-theme/master/themes/$1.js"
 	curl -s THEME >> $DEST_FILE
 	curl -s https://raw.githubusercontent.com/bbcnkl/slack-dark-theme/master/fix.js >> $DEST_FILE
+	
+	echo "Restart Slack for changes to take effect"
 }
 
 
@@ -47,17 +49,16 @@ do
         "navy")
             install_theme "navy"
             ;;
-        "Quit")
-            install_theme "default"
+        "low_contrast")
+            install_theme "low_contrast"
+            ;;
+        "hot_dog_stand")
+            install_theme "hot_dog_stand"
             break
             ;;
         *) echo "invalid option $REPLY";;
     esac
 done
-
-
-
-echo "Restart Slack for changes to take effect"
 
 
 

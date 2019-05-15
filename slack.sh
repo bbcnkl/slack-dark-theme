@@ -17,8 +17,8 @@ install_theme() {
 	echo $THEME
 	curl -s $THEME >> $DEST_FILE
 	curl -s https://raw.githubusercontent.com/bbcnkl/slack-dark-theme/master/fix.js >> $DEST_FILE
-	
 	echo "Restart Slack for changes to take effect"
+    	break
 }
 
 
@@ -28,7 +28,7 @@ then
 fi
 #if [[ -z "$t" ]]; then usage; fi
 
-
+echo "Choose theme"
 select opt in "${THEMES[@]}"
 do
     case $opt in
@@ -46,7 +46,6 @@ do
             ;;
         "hot_dog_stand")
             install_theme "hot_dog_stand"
-            break
             ;;
         *) echo "invalid option $REPLY";;
     esac

@@ -3,14 +3,6 @@ document.addEventListener("DOMContentLoaded", function() {
    const cssPath = 'https://raw.githubusercontent.com/bbcnkl/slack-dark-theme/master/slack.css';
    let cssPromise = fetch(cssPath).then(response => response.text());
 
-   let customCustomCSS = `
-   :root {
-      --primary: #CCC;
-      --text: #999;
-      --background: #222;
-      --background-elevated: #444;
-   }
-   `
    cssPromise.then(css => {
       let s = document.createElement('style');
       s.type = 'text/css';

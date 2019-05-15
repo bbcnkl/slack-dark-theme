@@ -26,7 +26,10 @@ install_theme() {
 }
 
 
-#if [[ "$#" -eq 0 ]]; then usage; fi
+if [[ "$1" -eq "-t" ]]
+then 
+	echo "Installing theme: "$2;
+fi
 #if [[ -z "$t" ]]; then usage; fi
 
 install_theme

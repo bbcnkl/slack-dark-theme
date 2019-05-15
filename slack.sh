@@ -22,15 +22,16 @@ uninstall_theme() {
 
 install_theme() {
 	uninstall_theme
-	curl https://raw.githubusercontent.com/bbcnkl/slack-dark-theme/master/fix.js >> $DEST_FILE
+	curl -s https://raw.githubusercontent.com/bbcnkl/slack-dark-theme/master/fix.js >> $DEST_FILE
 }
 
 
-if [[ "$1" -eq "-t" ]]
+if [[ "$1" = "-t" ]]
 then 
-	echo "Installing theme: "$2;
+	echo "Installing dark theme "$2;
 fi
 #if [[ -z "$t" ]]; then usage; fi
+
 
 install_theme
 echo "Restart Slack for changes to take effect"

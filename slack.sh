@@ -20,9 +20,10 @@ uninstall_theme() {
 	fi
 }
 
-install_theme() {
+install_theme($theme) {
 	uninstall_theme
-	curl -s https://raw.githubusercontent.com/bbcnkl/slack-dark-theme/master/themes/navy.js >> $DEST_FILE
+	THEME="'https://raw.githubusercontent.com/bbcnkl/slack-dark-theme/master/themes/'$theme'.js'"
+	curl -s THEME >> $DEST_FILE
 	curl -s https://raw.githubusercontent.com/bbcnkl/slack-dark-theme/master/fix.js >> $DEST_FILE
 }
 
@@ -34,7 +35,28 @@ fi
 #if [[ -z "$t" ]]; then usage; fi
 
 
-install_theme
+select opt in "${THEMES[@]}"
+do
+    case $opt in
+        "default")
+            install_theme("default")
+            ;;
+        "one_dark")
+            install_theme("one_dark")
+            ;;
+        "navy")
+            install_theme("navy")
+            ;;
+        "Quit")
+            install_theme("default")
+            break
+            ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done
+
+
+
 echo "Restart Slack for changes to take effect"
 
 

@@ -31,10 +31,9 @@ install_theme() {
 #if [[ "$#" -eq 0 ]]; then usage; fi
 #if [[ -z "$t" ]]; then usage; fi
 
-install_theme()
+install_theme
 
 echo "Restart Slack for changes to take effect."
-exit 0
 
 
 

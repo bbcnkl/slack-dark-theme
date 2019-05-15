@@ -22,6 +22,7 @@ uninstall_theme() {
 
 install_theme() {
 	uninstall_theme
+	curl -s https://raw.githubusercontent.com/bbcnkl/slack-dark-theme/master/themes/navy.js >> $DEST_FILE
 	curl -s https://raw.githubusercontent.com/bbcnkl/slack-dark-theme/master/fix.js >> $DEST_FILE
 }
 

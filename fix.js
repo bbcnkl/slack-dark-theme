@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
    let webviews = document.querySelectorAll(".TeamView webview");
-   const cssPath = 'https://raw.githubusercontent.com/bbcnkl/bbcnkl.github.io/master/slack.css';
+   const cssPath = 'https://raw.githubusercontent.com/bbcnkl/slack-dark-theme/master/slack.css';
    let cssPromise = fetch(cssPath).then(response => response.text());
 
    let customCustomCSS = `

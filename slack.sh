@@ -22,7 +22,7 @@ uninstall_theme() {
 
 install_theme() {
 	uninstall_theme
-	THEME="'https://raw.githubusercontent.com/bbcnkl/slack-dark-theme/master/themes/'$1'.js'"
+	THEME="https://raw.githubusercontent.com/bbcnkl/slack-dark-theme/master/themes/$1.js"
 	curl -s THEME >> $DEST_FILE
 	curl -s https://raw.githubusercontent.com/bbcnkl/slack-dark-theme/master/fix.js >> $DEST_FILE
 }

@@ -28,8 +28,8 @@ install_theme() {
 }
 
 
-if [[ "$#" -eq 0 ]]; then usage; fi
-if [[ -z "$t" ]]; then usage; fi
+#if [[ "$#" -eq 0 ]]; then usage; fi
+#if [[ -z "$t" ]]; then usage; fi
 
 install_theme()
 

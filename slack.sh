@@ -7,11 +7,11 @@ THEMES=("Default" "One Dark" "Low Contrast" "Navy" "Hot Dog Stand")
 uninstall_theme() {
 	if [[ $(grep -c "CUSTOM THEMES CONFIG" $DEST_FILE) -gt 0 ]]
 	then
-		sed -i '' -e '/^\/\/ CUSTOM THEMES CONFIG$/,$d' $DEST_FILE
+		sed -i '' -e '/^\/\/ CUSTOM THEMES CONFIG$/,$d' $DEST_FILE >/dev/null
 	fi
 	if [[ $(grep -c 'document.addEventListener("DOMContentLoaded", function() {' $DEST_FILE) -gt 0 ]]
 	then
-		sed -i '' -e '/document.addEventListener("DOMContentLoaded", function() {$/,$d' $DEST_FILE
+		sed -i '' -e '/document.addEventListener("DOMContentLoaded", function() {$/,$d' $DEST_FILE >/dev/null
 	fi
 }
 
@@ -22,7 +22,7 @@ install_theme() {
 	curl -s $THEME >> $DEST_FILE
 	curl -s https://raw.githubusercontent.com/bbcnkl/slack-dark-theme/master/fix.js >> $DEST_FILE
 	echo "Restart Slack for changes to take effect"
-    	break
+    	exit 1
 }
 
 

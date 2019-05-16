@@ -1,6 +1,7 @@
 #!/bin/bash
 
 DEST_FILE="/usr/lib/slack/resources/app.asar.unpacked/src/static/ssb-interop.js"
+declare -p DEST_FILE
 THEMES=("Default" "One Dark" "Low Contrast" "Navy" "Hot Dog Stand")
 
 

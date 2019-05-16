@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DEST_FILE="/usr/lib/slack/resources/app.asar.unpacked/src/static/ssb-interop.js"
-THEMES=("default" "one_dark" "low_contrast" "navy" "hot_dog_stand")
+THEMES=("Default" "One Dark" "Low Contrast" "Navy" "Hot Dog Stand")
 
 
 uninstall_theme() {
@@ -30,19 +30,19 @@ echo "Choose theme"
 select opt in "${THEMES[@]}"
 do
     case $opt in
-        "default")
+        "Default")
             install_theme "default"
             ;;
-        "one_dark")
+        "One Dark")
             install_theme "one_dark"
             ;;
-        "navy")
+        "Navy")
             install_theme "navy"
             ;;
-        "low_contrast")
+        "Low Contrast")
             install_theme "low_contrast"
             ;;
-        "hot_dog_stand")
+        "Hot Dog Stand")
             install_theme "hot_dog_stand"
             ;;
         *) echo "invalid option $REPLY";;

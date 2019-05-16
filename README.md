@@ -8,7 +8,7 @@ wget https://raw.githubusercontent.com/bbcnkl/slack-dark-theme/master/slack.sh
 
 Add execute permissions:
 ```
-chmod +x slack.s
+chmod +x slack.sh
 ```
 
 Execute (must be sudo)

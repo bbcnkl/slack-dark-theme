@@ -1,18 +1,17 @@
 #!/bin/bash
 
 DEST_FILE="/usr/lib/slack/resources/app.asar.unpacked/src/static/ssb-interop.js"
-declare -p DEST_FILE
 THEMES=("Default" "One Dark" "Low Contrast" "Navy" "Hot Dog Stand")
 
 
 uninstall_theme() {
 	if [[ $(grep -c "CUSTOM THEMES CONFIG" $DEST_FILE) -gt 0 ]]
 	then
-		sed -i '' -e '/^\/\/ CUSTOM THEMES CONFIG$/,$d' $DEST_FILE >/dev/null
+		sed -i '' -e '/^\/\/ CUSTOM THEMES CONFIG$/,$d' $DEST_FILE >/dev/null 2>&1
 	fi
 	if [[ $(grep -c 'document.addEventListener("DOMContentLoaded", function() {' $DEST_FILE) -gt 0 ]]
 	then
-		sed -i '' -e '/document.addEventListener("DOMContentLoaded", function() {$/,$d' $DEST_FILE >/dev/null
+		sed -i '' -e '/document.addEventListener("DOMContentLoaded", function() {$/,$d' $DEST_FILE >/dev/null 2>&1
 	fi
 }
 

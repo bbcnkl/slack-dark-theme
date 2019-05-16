@@ -7,26 +7,24 @@ THEMES=("default" "one_dark" "low_contrast" "navy" "hot_dog_stand")
 uninstall_theme() {
 	if [[ $(grep -c "CUSTOM THEMES CONFIG" $DEST_FILE) -gt 0 ]]
 	then
-		sed -n -i '' -e '/^\/\/ CUSTOM THEMES CONFIG$/,$d' $DEST_FILE
+		sed -i '' -e '/^\/\/ CUSTOM THEMES CONFIG$/,$d' $DEST_FILE
+	fi
+	if [[ $(grep -c 'document.addEventListener("DOMContentLoaded", function() {' $DEST_FILE) -gt 0 ]]
+	then
+		sed -i '' -e '/document.addEventListener("DOMContentLoaded", function() {$/,$d' $DEST_FILE
 	fi
 }
 
 install_theme() {
 	uninstall_theme
 	THEME=https://raw.githubusercontent.com/bbcnkl/slack-dark-theme/master/themes/$1.js
-	echo $THEME
+	echo "Installing theme: "$1;
 	curl -s $THEME >> $DEST_FILE
 	curl -s https://raw.githubusercontent.com/bbcnkl/slack-dark-theme/master/fix.js >> $DEST_FILE
 	echo "Restart Slack for changes to take effect"
     	break
 }
 
-
-if [[ "$1" = "-t" ]]
-then 
-	echo "Installing dark theme "$2;
-fi
-#if [[ -z "$t" ]]; then usage; fi
 
 echo "Choose theme"
 select opt in "${THEMES[@]}"
